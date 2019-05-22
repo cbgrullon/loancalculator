@@ -4,6 +4,8 @@ import {Textfield} from 'react-mdl';
 function TermField({onChange}){
     return(
         <Textfield 
+            style={{width:'100%',margin:'auto'}}
+            name="term"
             label="Term"
             onChange={(e)=>onChange(e)}
             pattern="-?[0-9]*(\.[0-9]+)?"

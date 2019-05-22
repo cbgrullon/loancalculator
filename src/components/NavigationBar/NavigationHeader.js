@@ -4,7 +4,7 @@ function NavigationHeader(){
     return(
         <Header title="Loan calculator">
             <Navigation>
-                {/* <label>By: Christopher B. Grullon</label> */}
+                <label>By: Christopher B. Grullon</label>
             </Navigation>
         </Header>
     );

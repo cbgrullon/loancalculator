@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const AmountInput=({onChange})=>{
     return(
         <Textfield
+            style={{width:'100%',margin:'auto'}}
+            name="amount"
             onChange={(e)=>onChange(e)}
             label="Amount"
             pattern="-?[0-9]*(\.[0-9]+)?"

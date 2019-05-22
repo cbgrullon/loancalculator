@@ -4,7 +4,7 @@ function NavigationDrawer(){
     return(
         <Drawer title="Features">
             <Navigation>
-                <a>Calculate a Loan</a>
+                <a href="/">Calculate a Loan</a>
             </Navigation>
         </Drawer>
     );
