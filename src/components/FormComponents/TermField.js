@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Textfield} from 'react-mdl';
+import Textfield from '@material-ui/core/TextField';
+import withRoot from '../../withRoot';
 function TermField({onChange}){
     return(
         <Textfield 
             style={{width:'100%',margin:'auto'}}
             name="term"
             label="Term"
-            onChange={(e)=>onChange(e)}
-            pattern="-?[0-9]*(\.[0-9]+)?"
-            error="Input is not a number"/>
+            type="Number"
+            onChange={(e)=>onChange(e)}/>
     );
 }
 TermField.propTypes={
     onChange:PropTypes.func.isRequired
 }
-export default TermField;
+export default withRoot(TermField);

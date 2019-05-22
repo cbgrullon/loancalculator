@@ -1,6 +1,7 @@
 import React from 'react';
-import {Textfield} from 'react-mdl';
+import Textfield from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
+import withRoot from '../../withRoot';
 const AmountInput=({onChange})=>{
     return(
         <Textfield
@@ -8,11 +9,11 @@ const AmountInput=({onChange})=>{
             name="amount"
             onChange={(e)=>onChange(e)}
             label="Amount"
-            pattern="-?[0-9]*(\.[0-9]+)?"
-            error="Input is not a Number"/>
+            type="Number"
+            />
     );
 }
 AmountInput.propTypes={
     onChange:PropTypes.func.isRequired
 }
-export default AmountInput;
+export default withRoot(AmountInput);

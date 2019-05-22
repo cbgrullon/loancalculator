@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
-import {Layout} from 'react-mdl';
-import NavigationDrawer from './NavigationBar/NavigationDrawer';
-import NavigationHeader from './NavigationBar/NavigationHeader'
+import NavBar from './NavBar';
 import CalculatorForm from './CalculatorForm'
 import ApiCaller from '../services/apiCaller';
 import apiUrl from '../constants';
 import AmortizationTable from './AmortizationTable';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography'
+// import {withStyles} from '@material-ui/core/styles/withStyles';
+// import withRoot from '../withRoot';
 class Application extends Component{
     caller;
     constructor(props){
@@ -46,13 +48,19 @@ class Application extends Component{
             : (<CalculatorForm handleFieldChange={this.onFormChange} SubmitHandle={this.handleSubmit}>
                 </CalculatorForm>);
         return(
-            <Layout>
-                <NavigationHeader />
-                <NavigationDrawer />
-                <div style={{paddingTop:2+'%'}}>
-                    {Html}
+            <div>
+                <NavBar />
+                <div style={{padding:'1%'}}>
                 </div>
-            </Layout>
+                <Paper style={{paddingTop:'5%',width:'70%',margin:'auto'}}>
+                    <div style={{width:'90%',margin:'auto'}}>
+                        <Typography variant="h5" component="h3">
+                            Calculator
+                        </Typography>
+                        {Html}
+                    </div>
+                </Paper>
+            </div>
         );
     }
 }

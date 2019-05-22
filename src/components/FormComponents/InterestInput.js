@@ -1,18 +1,18 @@
 import React from 'react';
-import {Textfield} from 'react-mdl';
+import Textfield from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
+import withRoot from '../../withRoot';
 const InterestInput=({onChange})=>{
     return(
         <Textfield 
             style={{width:'100%',margin:'auto'}}
             name="interest"
-            label="Interest" 
+            label="Interest"
             onChange={(e)=>onChange(e)} 
-            pattern="-?[0-9]*(\.[0-9]+)?"
-            error="Input is not a number"/>
+            type="Number"/>
     );
 }
 InterestInput.propTypes={
     onChange:PropTypes.func.isRequired
 }
-export default InterestInput;
+export default withRoot(InterestInput);
