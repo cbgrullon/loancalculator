@@ -15,19 +15,20 @@ function CalculatorForm({handleFieldChange,SubmitHandle,classes}){
     return(
         <form action='POST'>
             <Grid container spacing={16}>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <AmountField onChange={handleFieldChange}/> 
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <TermField onChange={handleFieldChange}/>
                 </Grid>
-            </Grid>
-            <Grid container spacing={16}>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <InterestField onChange={handleFieldChange}/>
                 </Grid>
-                <Grid item xs={6}>
-                    <Button variant="contained" color="primary" type="submit" onClick={(e)=>SubmitHandle(e)}>Submit</Button>
+            </Grid>
+            <Grid container spacing={16} style={{padding:'2%'}}>
+                <Grid item xs={9}></Grid>    
+                <Grid item xs={3}>
+                    <Button variant="contained" color="secondary" type="submit" onClick={(e)=>SubmitHandle(e)}>Submit</Button>
                 </Grid>
             </Grid>
 

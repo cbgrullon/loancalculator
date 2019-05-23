@@ -33,7 +33,7 @@ class ApiCaller{
                 return reject({statusCode:-1,message:'Invalid Parameters'});
             }
             if(!loanRequest.amount||!loanRequest.interest|!loanRequest.term){
-                return reject({statusCode:-2,message:'Invalid Parameters'});
+                return reject({statusCode:-2,message:'Complete all fields'});
             }
             fetch(`${this.Url}/api/Prestamos/GeneraAmortizacion`,getConfig('POST',{
                 interesAnual:loanRequest.interest,

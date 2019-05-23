@@ -6,6 +6,7 @@ import apiUrl from '../constants';
 import AmortizationTable from './AmortizationTable';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography'
+import swal from 'sweetalert2';
 // import {withStyles} from '@material-ui/core/styles/withStyles';
 // import withRoot from '../withRoot';
 class Application extends Component{
@@ -30,8 +31,20 @@ class Application extends Component{
             });            
         })
         .catch((err)=>{
-            console.log(err);
-             
+            if(err.statusCode<0){
+                swal.fire({
+                    title:'Warning',
+                    text:err.message,
+                    type:'warning'
+                })
+                return;
+            }
+            console.error(err);
+            swal.fire({
+                title:'Error',
+                text:'An unkown error ocurred',
+                type:'error'
+            })
         });
     }
     onFormChange(e){
@@ -43,10 +56,10 @@ class Application extends Component{
         })
     }
     render(){
-        let Html =this.state.amortizationTable.length>0 ? 
-            (<AmortizationTable rows={this.state.amortizationTable}/>) 
-            : (<CalculatorForm handleFieldChange={this.onFormChange} SubmitHandle={this.handleSubmit}>
-                </CalculatorForm>);
+        let Html;
+        if (this.state.amortizationTable.length>0){ 
+            Html=(<AmortizationTable rows={this.state.amortizationTable}/>);
+        }
         return(
             <div>
                 <NavBar />
@@ -57,9 +70,13 @@ class Application extends Component{
                         <Typography variant="h5" component="h3">
                             Calculator
                         </Typography>
+                        <CalculatorForm handleFieldChange={this.onFormChange} SubmitHandle={this.handleSubmit} />
                         {Html}
+                        <div style={{paddingTop:'2%'}}></div>
                     </div>
                 </Paper>
+                <div style={{paddingTop:'2%'}}></div>
+
             </div>
         );
     }
